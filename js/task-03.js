@@ -13,13 +13,13 @@ const images = [
   },
 ];
 
-for (let image of images) {
-  const listEl = document.querySelector(`.gallery`);
-  listEl.insertAdjacentHTML(
-    "afterbegin",
-    `<li><img src="${image.url}" alt="${image.alt}"></li>`
-  );
-}
+const galleryEl = document.querySelector(".gallery");
+
+const listEl = (item) =>
+  `<li class="list-item"><img src ="${item.url}" alt="${item.alt}" with = "640"></li>`;
+
+const galleryAllEl = images.map(listEl).join(``);
+galleryEl.insertAdjacentHTML("beforeend", galleryAllEl);
 
 // Используй массив объектов images для создания элементов <img> вложенных в <li>.
 //  Для создания разметки используй шаблонные строки и метод insertAdjacentHTML().
