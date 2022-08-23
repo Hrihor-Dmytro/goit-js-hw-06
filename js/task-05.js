@@ -8,6 +8,10 @@ const input = document.querySelector("#name-input");
 input.addEventListener("input", chengeInput);
 
 function chengeInput(event) {
-  onChengeInput.textContent = event.currentTarget.value;
-  console.log(onChengeInput);
+  if (event.currentTarget.value === "") {
+    onChengeInput.textContent = "Anonymous";
+  } else {
+    onChengeInput.textContent = event.currentTarget.value;
+    console.log(onChengeInput);
+  }
 }
